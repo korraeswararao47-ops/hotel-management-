@@ -1,0 +1,771 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Makes the website work well on mobile phones -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Araku Valley Tourism</title>
+
+    <style>
+
+        /* ---------- BASIC SETTINGS ---------- */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f8f2;
+            color: #333;
+            line-height: 1.6;
+        }
+
+
+        /* ---------- NAVIGATION BAR ---------- */
+
+        nav {
+            background-color: #064e3b;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav h2 {
+            color: white;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #facc15;
+        }
+
+
+        /* ---------- HERO SECTION ---------- */
+
+        .hero {
+            height: 550px;
+
+            background-image:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.45),
+                    rgba(0, 0, 0, 0.45)
+                ),
+                url("https://images.unsplash.com/photo-1500534623283-312aade485b7");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            color: white;
+        }
+
+        .hero-content {
+            animation: fadeIn 2s;
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 22px;
+        }
+
+        .hero button {
+            margin-top: 25px;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 25px;
+            background-color: #facc15;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .hero button:hover {
+            background-color: white;
+            transform: scale(1.05);
+        }
+
+
+        /* ---------- COMMON SECTION ---------- */
+
+        section {
+            padding: 60px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #064e3b;
+            font-size: 35px;
+            margin-bottom: 35px;
+        }
+
+
+        /* ---------- ABOUT ---------- */
+
+        .about {
+            text-align: center;
+            max-width: 900px;
+            margin: auto;
+            font-size: 18px;
+        }
+
+
+        /* ---------- PLACES ---------- */
+
+        .places {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(250px, 1fr));
+
+            gap: 25px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card h3 {
+            color: #065f46;
+            margin-bottom: 10px;
+        }
+
+
+        /* ---------- TRIP PLAN ---------- */
+
+        .trip-plan {
+            background-color: #e7f3e8;
+        }
+
+        .plan {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .day {
+            background-color: white;
+            margin-bottom: 15px;
+            padding: 20px;
+            border-left: 6px solid #065f46;
+            border-radius: 8px;
+        }
+
+        .day h3 {
+            color: #065f46;
+        }
+
+
+        /* ---------- REGISTRATION FORM ---------- */
+
+        .form-container {
+            max-width: 650px;
+            margin: auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 13px;
+            background-color: #065f46;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #047857;
+        }
+
+
+        /* ---------- CONTACT ---------- */
+
+        .contact {
+            text-align: center;
+            background-color: #064e3b;
+            color: white;
+        }
+
+        .contact h2 {
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            margin: 8px;
+        }
+
+
+        /* ---------- FOOTER ---------- */
+
+        footer {
+            text-align: center;
+            background-color: #022c22;
+            color: white;
+            padding: 20px;
+        }
+
+
+        /* ---------- ANIMATION ---------- */
+
+        @keyframes fadeIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* ---------- MOBILE DESIGN ---------- */
+
+        @media (max-width: 700px) {
+
+            nav {
+                flex-direction: column;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 8px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav>
+
+    <h2>🌿 Araku Tourism</h2>
+
+    <div>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#places">Places</a>
+        <a href="#trip">Trip Plan</a>
+        <a href="#register">Register</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+</nav>
+
+
+<!-- ================= HOME ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>Welcome to Araku Valley</h1>
+
+        <p>
+            Explore the beautiful hills, waterfalls,
+            coffee plantations and tribal culture.
+        </p>
+
+        <button onclick="goToPlaces()">
+            Explore Araku
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+    <h2 class="section-title">
+        About Araku Valley
+    </h2>
+
+    <div class="about">
+
+        <p>
+            Araku Valley is a beautiful hill destination
+            in Andhra Pradesh, India. It is famous for its
+            green valleys, coffee plantations, waterfalls,
+            forests and tribal culture.
+        </p>
+
+        <br>
+
+        <p>
+            The journey to Araku through the Eastern Ghats
+            is one of the major attractions for visitors.
+            Araku is an excellent destination for nature
+            lovers, photographers and tourists.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= TOURIST PLACES ================= -->
+
+<section id="places">
+
+    <h2 class="section-title">
+        Famous Places in Araku
+    </h2>
+
+
+    <div class="places">
+
+
+        <!-- PLACE 1 -->
+
+        <div class="card">
+
+            <img
+                src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b"
+                alt="Araku Hills">
+
+            <div class="card-content">
+
+                <h3>🏔️ Araku Hills</h3>
+
+                <p>
+                    Enjoy the beautiful green mountains
+                    and peaceful atmosphere of Araku Valley.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- PLACE 2 -->
+
+        <div class="card">
+
+            <img
+                src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e"
+                alt="Waterfall">
+
+            <div class="card-content">
+
+                <h3>💧 Waterfalls</h3>
+
+                <p>
+                    Discover beautiful waterfalls and
+                    natural scenery around the valley.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- PLACE 3 -->
+
+        <div class="card">
+
+            <img
+                src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085"
+                alt="Coffee">
+
+            <div class="card-content">
+
+                <h3>☕ Araku Coffee</h3>
+
+                <p>
+                    Explore the famous coffee plantations
+                    and learn about local coffee production.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- PLACE 4 -->
+
+        <div class="card">
+
+            <img
+                src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
+                alt="Nature">
+
+            <div class="card-content">
+
+                <h3>🌿 Nature</h3>
+
+                <p>
+                    Experience forests, valleys and
+                    beautiful Eastern Ghats landscapes.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================= TRIP PLAN ================= -->
+
+<section class="trip-plan" id="trip">
+
+    <h2 class="section-title">
+        🗺️ Sample Araku Trip Plan
+    </h2>
+
+
+    <div class="plan">
+
+
+        <div class="day">
+
+            <h3>Day 1 – Travel to Araku</h3>
+
+            <p>
+                Start your journey from Visakhapatnam
+                and travel towards Araku Valley.
+            </p>
+
+        </div>
+
+
+        <div class="day">
+
+            <h3>Day 2 – Explore Araku</h3>
+
+            <p>
+                Visit viewpoints, coffee plantations,
+                tribal museum and nearby attractions.
+            </p>
+
+        </div>
+
+
+        <div class="day">
+
+            <h3>Day 3 – Nature & Return</h3>
+
+            <p>
+                Visit waterfalls and enjoy the scenery
+                before returning to Visakhapatnam.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================= REGISTRATION ================= -->
+
+<section id="register">
+
+    <h2 class="section-title">
+        📝 Plan Your Araku Trip
+    </h2>
+
+
+    <div class="form-container">
+
+
+        <form onsubmit="registerTourist(event)">
+
+
+            <div class="form-group">
+
+                <label>
+                    Tourist Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your name"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Phone Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="Enter phone number"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Number of Tourists
+                </label>
+
+                <input
+                    type="number"
+                    id="people"
+                    min="1"
+                    placeholder="Number of people"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Travel Date
+                </label>
+
+                <input
+                    type="date"
+                    id="date"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Select Package
+                </label>
+
+                <select id="package">
+
+                    <option>
+                        One Day Araku Trip
+                    </option>
+
+                    <option>
+                        Two Day Araku Trip
+                    </option>
+
+                    <option>
+                        Three Day Araku Trip
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Message
+                </label>
+
+                <textarea
+                    id="message"
+                    placeholder="Tell us about your trip...">
+                </textarea>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="submit-btn">
+
+                Register for Trip
+
+            </button>
+
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="contact" id="contact">
+
+    <h2>📞 Contact Araku Tourism</h2>
+
+    <p>
+        📍 Araku Valley, Andhra Pradesh, India
+    </p>
+
+    <p>
+        📞 Phone: +91 XXXXXXXXXX
+    </p>
+
+    <p>
+        📧 Email: tourism@example.com
+    </p>
+
+    <p>
+        🌐 Website: Araku Tourism
+    </p>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <p>
+        © 2026 Araku Valley Tourism
+    </p>
+
+    <p>
+        Designed by a Beginner HTML Developer ❤️
+    </p>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+
+    /* Explore Araku button */
+
+    function goToPlaces() {
+
+        document
+            .getElementById("places")
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+
+    }
+
+
+    /* Registration form */
+
+    function registerTourist(event) {
+
+        event.preventDefault();
+
+        let name =
+            document.getElementById("name").value;
+
+        let people =
+            document.getElementById("people").value;
+
+        alert(
+            "Thank you " +
+            name +
+            "! Your Araku trip registration for " +
+            people +
+            " tourist(s) has been received."
+        );
+
+    }
+
+
+</script>
+
+
+</body>
+</html>
+```

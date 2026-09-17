@@ -1,0 +1,12 @@
+h1{
+     font-weight:400;
+   }
+   label::before{
+           content: "*";
+   }
+label::after{
+           content: "*";
+   }
+
+
+

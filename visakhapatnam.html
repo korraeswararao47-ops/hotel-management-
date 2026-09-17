@@ -1,0 +1,445 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vizag Beach Tours</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4fbff;
+            color: #222;
+        }
+
+        header {
+            background: #0077b6;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ffd166;
+        }
+
+        .hero {
+            min-height: 500px;
+            background:
+                linear-gradient(rgba(0, 70, 100, 0.55),
+                rgba(0, 70, 100, 0.55)),
+                url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e")
+                center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 30px;
+        }
+
+        .hero h2 {
+            font-size: 52px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 21px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ff7b00;
+            color: white;
+            padding: 13px 25px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #e65f00;
+        }
+
+        section {
+            padding: 55px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #0077b6;
+            font-size: 32px;
+            margin-bottom: 35px;
+        }
+
+        .beaches {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card h3 {
+            color: #0077b6;
+            margin-bottom: 10px;
+        }
+
+        .packages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .package {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .price {
+            font-size: 30px;
+            color: #ff7b00;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+
+        .booking {
+            background: #e3f7ff;
+        }
+
+        form {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 13px;
+            margin: 8px 0 16px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        .contact {
+            text-align: center;
+        }
+
+        .phone {
+            display: inline-block;
+            background: #0077b6;
+            color: white;
+            padding: 15px 25px;
+            margin: 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        footer {
+            background: #023047;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        @media(max-width: 700px) {
+            header {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 5px;
+            }
+
+            .hero h2 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🌊 Vizag Beach Tours</h1>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#beaches">Beaches</a>
+        <a href="#packages">Packages</a>
+        <a href="#booking">Book Now</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div>
+        <h2>Explore Visakhapatnam Beaches</h2>
+        <p>Enjoy the beautiful beaches, sunsets and coastal beauty of Vizag.</p>
+
+        <a href="#booking" class="btn">Book Your Trip</a>
+    </div>
+</section>
+
+
+<!-- BEACHES -->
+<section id="beaches">
+
+    <h2 class="section-title">🏖️ Popular Vizag Beaches</h2>
+
+    <div class="beaches">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+            <div class="card-content">
+                <h3>RK Beach</h3>
+                <p>
+                    Ramakrishna Beach is one of the most popular beaches
+                    in Visakhapatnam and is perfect for evening walks.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57">
+            <div class="card-content">
+                <h3>Rushikonda Beach</h3>
+                <p>
+                    Enjoy golden sand, beautiful waves and water activities
+                    at Rushikonda Beach.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda">
+            <div class="card-content">
+                <h3>Yarada Beach</h3>
+                <p>
+                    A peaceful coastal destination surrounded by hills,
+                    offering beautiful views and sunsets.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+            <div class="card-content">
+                <h3>Bheemili Beach</h3>
+                <p>
+                    Visit Bheemili for a relaxing beach experience,
+                    coastal scenery and historic surroundings.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- TOUR PACKAGES -->
+<section id="packages">
+
+    <h2 class="section-title">🚐 Tour Packages</h2>
+
+    <div class="packages">
+
+        <div class="package">
+            <h3>Vizag Beach Day Trip</h3>
+            <p class="price">₹999</p>
+            <p>RK Beach</p>
+            <p>Rushikonda Beach</p>
+            <p>Yarada Beach</p>
+            <br>
+            <a href="#booking" class="btn">Book Now</a>
+        </div>
+
+        <div class="package">
+            <h3>Vizag 2-Day Tour</h3>
+            <p class="price">₹2,499</p>
+            <p>3 Beaches</p>
+            <p>City Sightseeing</p>
+            <p>Transport Included</p>
+            <br>
+            <a href="#booking" class="btn">Book Now</a>
+        </div>
+
+        <div class="package">
+            <h3>Family Beach Tour</h3>
+            <p class="price">₹3,999</p>
+            <p>Family Transport</p>
+            <p>Beach Sightseeing</p>
+            <p>Full Day Tour</p>
+            <br>
+            <a href="#booking" class="btn">Book Now</a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- BOOKING -->
+<section class="booking" id="booking">
+
+    <h2 class="section-title">📅 Book Your Vizag Trip</h2>
+
+    <form id="bookingForm">
+
+        <label>Full Name</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+
+        <label>Phone Number</label>
+        <input type="tel" id="phone" placeholder="Enter phone number" required>
+
+        <label>Select Tour</label>
+
+        <select id="tour" required>
+            <option value="">Select a package</option>
+            <option>Vizag Beach Day Trip - ₹999</option>
+            <option>Vizag 2-Day Tour - ₹2,499</option>
+            <option>Family Beach Tour - ₹3,999</option>
+        </select>
+
+        <label>Travel Date</label>
+        <input type="date" id="date" required>
+
+        <label>Number of People</label>
+        <input type="number" id="people" min="1" value="1" required>
+
+        <label>Message</label>
+        <textarea id="message"
+            placeholder="Any special requirements?"></textarea>
+
+        <button type="submit" class="btn">
+            Submit Booking
+        </button>
+
+    </form>
+</section>
+
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+    <h2 class="section-title">📞 Contact Us</h2>
+
+    <p>Call us to book your Visakhapatnam Beach Tour.</p>
+
+    <!-- Replace these sample numbers with your real numbers -->
+
+    <a class="phone" href="tel:+919876543210">
+        📱 +91 98765 43210
+    </a>
+
+    <a class="phone" href="tel:+919123456789">
+        📱 +91 91234 56789
+    </a>
+
+    <br>
+
+    <a class="phone"
+       href="https://wa.me/919876543210"
+       target="_blank">
+        💬 WhatsApp Us
+    </a>
+
+</section>
+
+
+<footer>
+    <p>© 2026 Vizag Beach Tours | Visakhapatnam, Andhra Pradesh</p>
+    <p>🌊 Your Beach Trip Starts Here!</p>
+</footer>
+
+
+<script>
+
+    document.getElementById("bookingForm")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        let name = document.getElementById("name").value;
+        let phone = document.getElementById("phone").value;
+        let tour = document.getElementById("tour").value;
+        let date = document.getElementById("date").value;
+        let people = document.getElementById("people").value;
+
+        alert(
+            "Booking Request Submitted!\\n\\n" +
+            "Name: " + name + "\\n" +
+            "Phone: " + phone + "\\n" +
+            "Tour: " + tour + "\\n" +
+            "Date: " + date + "\\n" +
+            "People: " + people
+        );
+
+    });
+
+</script>
+
+</body>
+</html>
+```
+
